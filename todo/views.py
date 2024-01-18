@@ -23,7 +23,7 @@ class TodoView (APIView):
             data = request.data
             data['user'] = user.id
             serializer = TodoSerializer (data = data)
-            if not serializer.is_vaild():
+            if not serializer.is_valid():
                 return Response ({
                 'status': False,
                 'message': 'invalid fields',
@@ -61,7 +61,7 @@ class TodoView (APIView):
                     
                 })
             serializer = TodoSerializer(obj, data=data, partial =True)
-            if not serializer.is_vaild():
+            if not serializer.is_valid():
                     return Response ({
                         'status': False,
                         'message': 'invalid fields',
